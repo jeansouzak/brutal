@@ -38,7 +38,7 @@ $httpOptions = new HttpOptions(
         'answer' => '$term'
     ],
     [
-        'cookie' => 'csrftoken=90bhiivfYQDwzsmJlNmNSkOChC8R7mokXwQdtIhnOQjhDSFr1FmYoSa2yAUQ69S7; sessionid=dpnhtooqhbpyz13prntscmdvn3fecrxp; _ga=GA1.2.990902724.1625988778; __gads=ID=0ec8c939b9806b6d-2287dfc159ba0044:T=1625988672:RT=1625988672:S=ALNI_MatBo578CZE0Fb_n_FT3STPQjvliA',
+        'cookie' => 'GET_YOUR_REQUEST_COOKIE_FROM_YOUR_BROWSER',
         'origin' => 'https://hack.ainfosec.com',
         'referer' => 'https://hack.ainfosec.com/',
         'user-agent' => 'Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36',
@@ -56,6 +56,6 @@ $httpOptions = new HttpOptions(
     ]
 );
 $httpAttackRepository = HttpAttackRepositoryFactory::createRepository($httpOptions);
-$brutalService->attack($httpAttackRepository, $chunks);
+$attackResult = $brutalService->attack($httpAttackRepository, $chunks);
 $reportRepository = CLIReportRepositoryFactory::createRepository($httpOptions);
 $brutalService->report($reportRepository, $attackResult);

@@ -54,7 +54,7 @@ $brutalService->report($reportRepository, $attackResult);
 
 ```
 Try it at [hack a infosec](https://hack.ainfosec.com/) first programming challenge.<br>
-Look at brutal_hackinfosec.php file to help you 😁
+Look at brutal_hackinfosec.php file(put your cookie on GET_YOUR_REQUEST_COOKIE_FROM_YOUR_BROWSER) to help you 😁 
 
 ## Using Brutal CLI
 **Under construction*
