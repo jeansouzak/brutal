@@ -3,7 +3,6 @@ A simple PHP Toolkit to **parallel** generate combinations, save and use the gen
 
 Brutal use a simple combination algorithm to generate unique and limited number of combinations in chunk files<br/>
 
-
 ## Installation
 
 `Brutal` is written in PHP and distributed as package via `composer`. Make sure you have PHP (>= 7.3) installed.
@@ -16,7 +15,12 @@ composer install brutal
 
 ## Using Brutal
 
-### Generating and saving combinations dictionaries
+### Generating and saving combinations dictionaries:
+<p align="center">
+    <img src=".github/generate_save.png" width="55%" >       
+<p>
+
+
 ```PHP
 //Instance BrutalService (the facade)
 $brutalService = new BrutalService();
@@ -32,6 +36,10 @@ $combinationRepository = CombinationRepositoryFactory::createRepository($combina
 $brutalService->save($combinationRepository);
 ```
 ### Loading dictionaries chunks, attacking the target and reporting results
+<p align="center">    
+    <img src=".github/load_attack_report.png" width="55%">
+<p>
+
 ```PHP
 //Create a concrete repository of Loader and pass the path where saved the combinations
 $loadRepository = LoadRepositoryFactory::createRepository($from);
