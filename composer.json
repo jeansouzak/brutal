@@ -1,0 +1,27 @@
+{
+    "name": "jeansouzak/brutal",
+    "description": "A brute force PHP toolkit",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jean Souza",
+            "email": "jeancsouzak@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "amphp/amp": "^2.0@dev",
+        "amphp/file": "^2.0@dev",
+        "amphp/http-client": "^4.0@dev",
+        "league/climate": "dev-master"        
+    },
+    "autoload": {
+        "psr-4": {
+            "JeanSouzaK\\Brutal\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
