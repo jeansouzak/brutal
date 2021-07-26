@@ -5,6 +5,8 @@ Brutal use a simple combination algorithm to generate unique and limited number 
 
 ## Installation
 
+**Under construction* <br>
+
 `Brutal` is written in PHP and distributed as package via `composer`. Make sure you have PHP (>= 7.3) installed.
 
 Using composer:
