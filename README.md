@@ -133,7 +133,7 @@ To customize and add new features consider extends (open-closed principle) follo
 1. **Generate** <br>
    BrutalService::generate(Combinable) : Combinations <br>
    Build your custom combination algorithm implementing Combinable interface to generate terms
-2. **Save**
+2. **Save** <br>
    BrutalService::save(CombinationRepositoryInterface, $chunk = true) : void<br>
    Build your custom saver algorithm implementing CombinationRepositoryInterface
 3. **Load**<br>
