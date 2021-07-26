@@ -17,7 +17,7 @@ composer install brutal
 
 ### Generating and saving combinations dictionaries:
 <p align="center">
-    <img src=".github/generate_save.png" width="55%" >       
+    <img src=".github/generate_save.PNG" width="55%" >       
 <p>
 
 
@@ -37,7 +37,7 @@ $brutalService->save($combinationRepository);
 ```
 ### Loading dictionaries chunks, attacking the target and reporting results
 <p align="center">    
-    <img src=".github/load_attack_report.png" width="55%">
+    <img src=".github/load_attack_report.PNG" width="55%">
 <p>
 
 ```PHP
