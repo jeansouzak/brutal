@@ -1,12 +1,12 @@
 ## Brutal
-A simple PHP Toolkit to **parallel** generate combinations, save and use the generated terms to apply [brutel force attack](https://owasp.org/www-community/attacks/Brute_force_attack) via the http protocol using CLI.
+A simple PHP Toolkit to **parallel** generate combinations, save and use the generated terms to apply [brute force attack](https://owasp.org/www-community/attacks/Brute_force_attack) via the http protocol.
 
 Brutal use a simple combination algorithm to generate unique and limited number of combinations in chunk files<br/>
 
 
 ## Installation
 
-`brutal-cli` is written in PHP and distributed as package via `composer`. Make sure you have PHP (>= 7.3) installed.
+`Brutal` is written in PHP and distributed as package via `composer`. Make sure you have PHP (>= 7.3) installed.
 
 Using composer:
 
@@ -14,12 +14,50 @@ Using composer:
 composer install brutal
 ```
 
+## Using Brutal
 
+### Generating and saving combinations dictionaries
+```PHP
+//Instance BrutalService (the facade)
+$brutalService = new BrutalService();
 
-### Using Brutal CLI
+//Call generate and pass an implementation of Combinable interface, an array of words and the size of combination
+$combinations = $brutalService->generate(new SimpleCombination(), ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'], 3);
 
-#### Command Line
+//Create a concrete repository of Combination and pass the combinations generated, a path to save the combinations and the format of content
+$from = '/tmp/brutal';
+$combinationRepository = CombinationRepositoryFactory::createRepository($combinations, $from, CombinationRepository::FORMAT_TEXT);
 
+//Call save method passing the concrete repository
+$brutalService->save($combinationRepository);
+```
+### Loading dictionaries chunks, attacking the target and reporting results
+```PHP
+//Create a concrete repository of Loader and pass the path where saved the combinations
+$loadRepository = LoadRepositoryFactory::createRepository($from);
+//Load chunks calling load method and passing concrete load repository
+$chunks = $brutalService->load($loadRepository);
+
+//Instance HttpOptions passing the http target, method, format, body and headers (optional). Use '$term' where you need override to generated combination term
+$httpOptions = new HttpOptions('http://localhost:3000/test_server.php', 'POST', HttpFormat::JSON, ['test' => '$term']);
+//Create a concrete attack repository calling HttpAttackFactory and passing $httpOptions
+$httpAttackRepository = HttpAttackRepositoryFactory::createRepository($httpOptions);
+//Call attack method passing the concrete attack repository and loaded chunks
+$attackResult = $brutalService->attack($httpAttackRepository, $chunks);
+
+//Create a concrete report repository passing http options
+$reportRepository = CLIReportRepositoryFactory::createRepository($httpOptions);
+//Call report method passing the concrete report repository and attack results
+$brutalService->report($reportRepository, $attackResult);
+
+//You can run the test_server.php to test this
+
+```
+Try it at [hack a infosec](https://hack.ainfosec.com/) first programming challenge.<br>
+Look at brutal_hackinfosec.php file to help you 😁
+
+## Using Brutal CLI
+**Under construction*
 ### To generate combinations
 ```Bash
 $ php brutal.php generate <options>

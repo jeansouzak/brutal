@@ -74,6 +74,7 @@ class HttpAttackRepository implements AttackRepositoryInterface
         try {
             Output::verbose()->out('Waiting some HTTP status 200');
             $attackResult = wait(some($promises, 1));
+            return array_key_exists(1, $attackResult) ? $attackResult[1] : [];
         } catch (MultiReasonException $ex) {
             Log::error()->red('Error on parallel attack target: ' . $ex->getMessage());
             Log::error()->dump($ex->getReasons());            
