@@ -1,7 +1,7 @@
 ## Brutal
 A simple PHP Toolkit to **parallel** generate combinations, save and use the generated terms to apply [brute force attack](https://owasp.org/www-community/attacks/Brute_force_attack) via the http protocol.
 
-Brutal use a simple combination algorithm to generate unique and limited number of combinations in chunk files<br/>
+Brutal uses a simple combination algorithm to generate unique and limited number of combinations in chunk files<br/>
 
 ## Installation
 
