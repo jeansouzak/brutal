@@ -143,8 +143,8 @@ To customize and add new features consider extends (open-closed principle) follo
    BrutallService::attack(AttackRepositoryInterface $attackRepository, Chunks $chunks) : array <br>
    Build your custom attacker algorithm implementing AttackRepositoryInterface
 5. **Report**<br>
-   BrutalService::report(ReportRepositoryInterface $report, array $attackResult)
-   Builder yout custom reporter implmenting ReportRepositoryInterface 
+   BrutalService::report(ReportRepositoryInterface $report, array $attackResult)<br>
+   Builder your custom reporter implementing ReportRepositoryInterface 
 
 
 
